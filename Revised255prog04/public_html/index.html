@@ -9,8 +9,11 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+       
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <style>
             body {
                 padding-top: 50px;
@@ -204,6 +207,14 @@ function addLine () {
         var option2 = document.createElement("option");
         var option3 = document.createElement("option");
         
+         // create a new label element, and append to fieldset1 for drop down list
+	var newelement = document.createElement("label");
+	newelement.setAttribute("for","country"+currentLine);
+	var textnode = document.createTextNode("Country");
+	newelement.appendChild(textnode);
+	var fieldset1 = document.getElementById("fieldset1");
+	fieldset1.appendChild(newelement);
+        
         select1.setAttribute("name","country"+currentLine);
 	select1.setAttribute("id","country"+currentLine);
 	select1.setAttribute("type","text");
@@ -300,8 +311,8 @@ function genTable(){
     
     // create a new talbe element
 	var newelement = document.createElement("table");
-        newelement.setAttribute("class","table-striped");
-        newelement.setAttribute("class","table-bordered");
+        newelement.setAttribute("class","table-striped + table-bordered");
+       // newelement.setAttribute("class","table-bordered");
 	newelement.setAttribute("id","table1");
 	var div3 = document.getElementById("div3");
 	div3.appendChild(newelement);
