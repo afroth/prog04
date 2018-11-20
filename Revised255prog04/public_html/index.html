@@ -288,9 +288,19 @@ function genObjectArray() {
 			'day'       :parseInt(document.getElementById("day"+i).value)?parseInt(document.getElementById("day"+i).value):0, 
                         'month'     :parseInt(document.getElementById("month"+i).value)?parseInt(document.getElementById("month"+i).value):0,
                         'year'      :parseInt(document.getElementById("year"+i).value)?parseInt(document.getElementById("year"+i).value):0,
-			'country'   :document.getElementById("country"+i).value
-                      // 'age' :parseInt(document.getElementById("age"+i).value)?parseInt(document.getElementById("age"+i).value):0
-                        };
+			'country'   :document.getElementById("country"+i).value,
+                        'countryAge': genAge(parseInt(document.getElementById("day"+i).value)?parseInt(document.getElementById("day"+i).value):0,
+                                             parseInt(document.getElementById("month"+i).value)?parseInt(document.getElementById("month"+i).value):0,
+                                             parseInt(document.getElementById("year"+i).value)?parseInt(document.getElementById("year"+i).value):0,
+                                              document.getElementById("country"+i).value
+                                            ),
+                        'zodiac' :genZodiac(parseInt(document.getElementById("day"+i).value)?parseInt(document.getElementById("day"+i).value):0,
+                                             parseInt(document.getElementById("month"+i).value)?parseInt(document.getElementById("month"+i).value):0,
+                                             parseInt(document.getElementById("year"+i).value)?parseInt(document.getElementById("year"+i).value):0,
+                                             document.getElementById("country"+i).value
+                                            )
+
+                };
 	}
 }
 function genDisplay(){
@@ -369,13 +379,13 @@ function genTable(){
         // passes them to the function genAge() to generate outpur for age.
         var cell3 = row1.insertCell(2);
         cell3.setAttribute("id","r2c3");
-        cell3.innerHTML = genAge(objArray[i].day, objArray[i].month, objArray[i].year, objArray[i].country );
+        cell3.innerHTML = objArray[i].countryAge;
         
         // cell 4- output for zodiac signs passes four elements from array objArray
         // to function genZodiac() to generate the output for the zodiac sign.
         var cell4 = row1.insertCell(3); 
         cell4.setAttribute("id","r2c4");
-        cell4.innerHTML = genZodiac(objArray[i].day, objArray[i].month, objArray[i].year, objArray[i].country);
+        cell4.innerHTML = objArray[i].zodiac;
         
        
     }
