@@ -3,17 +3,9 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-       
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <head>    
+        <title> Prog 4</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">     
         <style>
             body {
                 padding-top: 50px;
@@ -30,23 +22,9 @@
 			margin-right: 25px;
                 
 		}
-                select{width:100px};
-               
-		
-                #table1{border:1px solid black;}
-                #r1c1, #r1c2, #r1c3, #r1c4 {border:1px solid black;}
-                #r1c1, #r1c2, #r1c3, #r1c4 {font-weight: bold;}
-                #r2c1, #r2c2, #r2c3, #r2c4 {border:1px solid black;}
-                #r2c1, #r2c2, #r2c3, #r2c4 {font-weight: bold;}
-                
-                
-                
-		
+                select{width:100px};     		
             }
-        </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        </style>       
         
     </head>
   <body onload="addForm();">
@@ -141,46 +119,10 @@ function addForm() {
 	// add more fields 
 	addField("fieldset1", "lname", "Surname", "text", "Doe", inputWidth);
 	addField("fieldset1", "day", "Solar Day", "number", "Day", inputWidth);
-        addField("fieldset1", "month", "Solar Month", "text", "Month", inputWidth);
-        addField("fieldset1", "year", "Solar Year","number", "Year", inputWidth);     
-        
-        // create a new label element, and append to fieldset1 for drop down list
-	var newelement = document.createElement("label");
-	newelement.setAttribute("for","country"+currentLine);
-	var textnode = document.createTextNode("Country");
-	newelement.appendChild(textnode);
-	var fieldset1 = document.getElementById("fieldset1");
-	fieldset1.appendChild(newelement);
-       
-        var select1 = document.createElement("select");
-        var option1 = document.createElement("option");
-        var option2 = document.createElement("option");
-        var option3 = document.createElement("option");
-       
-       
-        select1.setAttribute("name","country"+currentLine);
-	select1.setAttribute("id","country"+currentLine);
-	select1.setAttribute("type","text");
-	if (currentLine===0) select1.setAttribute("autofocus","autofocus");
-	var fieldset1 = document.getElementById("fieldset1");
-        fieldset1.appendChild(select1);
-       
-       
-        // option1 attributes for drop down list
-        option1.value = "";
-        option1.text = "Select";
-        select1.appendChild(option1);
-       
-        // option2 attributed for drop down list
-        option2.value = "United States";
-        option2.text = "United States";
-        select1.appendChild(option2);
-       
-        // option3 attributes for drop down list
-        option3.value = "China";
-        option3.text = "China";
-        select1.appendChild(option3);
-               
+        addField("fieldset1", "month", "Solar Month", "number", "Month", inputWidth);
+        addField("fieldset1", "year", "Solar Year","number", "Year", inputWidth);
+        addField("fieldset1", "country", "Country", "text", "Select", inputWidth);
+                       
 	// add line break 
 	var newelement = document.createElement("br");
 	var fieldset1 = document.getElementById("fieldset1");
@@ -201,42 +143,8 @@ function addLine () {
 	addField("fieldset1", "day", "Solar Day", "number", "Day", inputWidth);
         addField("fieldset1", "month", "Solar Month", "number", "Month", inputWidth);
         addField("fieldset1", "year", "Solar Year","number", "Year", inputWidth);
-	  
-        var select1 = document.createElement("select");
-        var option1 = document.createElement("option");
-        var option2 = document.createElement("option");
-        var option3 = document.createElement("option");
-        
-         // create a new label element, and append to fieldset1 for drop down list
-	var newelement = document.createElement("label");
-	newelement.setAttribute("for","country"+currentLine);
-	var textnode = document.createTextNode("Country");
-	newelement.appendChild(textnode);
-	var fieldset1 = document.getElementById("fieldset1");
-	fieldset1.appendChild(newelement);
-        
-        select1.setAttribute("name","country"+currentLine);
-	select1.setAttribute("id","country"+currentLine);
-	select1.setAttribute("type","text");
-	if (currentLine===0) select1.setAttribute("autofocus","autofocus");
-	var fieldset1 = document.getElementById("fieldset1");
-        fieldset1.appendChild(select1);
-       
-        // option1 attributes for drop down list
-        option1.value = "";
-        option1.text = "Select";
-        select1.appendChild(option1);
-       
-        // option2 attributed for drop down list
-        option2.value = "United States";
-        option2.text = "United States";
-        select1.appendChild(option2);
-       
-        // option3 attributes for drop down list
-        option3.value = "China";
-        option3.text = "China";
-        select1.appendChild(option3);
-       
+	addField("fieldset1", "country", "Country", "text", "Select", inputWidth);  
+           
 	var newelement = document.createElement("br");
 	var fieldset1 = document.getElementById("fieldset1");
 	fieldset1.appendChild(newelement);
@@ -258,17 +166,51 @@ function addField(formId, namePrefix, labelText, dataType, placeholder, fieldSiz
 	n.appendChild(t);
 	var f = document.getElementById(formId);
 	f.appendChild(n);
-
-	// create a new input element, and append to form
-	var n = document.createElement("input");
-	n.setAttribute("name",namePrefix+currentLine);
-	n.setAttribute("id",namePrefix+currentLine);
-	n.setAttribute("type",dataType);
-	n.setAttribute("placeholder",placeholder);
-	n.setAttribute("size",fieldSize);
-	var f = document.getElementById(formId);
-	f.appendChild(n);
+        
+        if(namePrefix ==="country"){
+            var select1 = document.createElement("select");
+            var option1 = document.createElement("option");
+            var option2 = document.createElement("option");
+            
+            // create a new label element, and append to fieldset1 for drop down list
+            var newelement = document.createElement("label");
+            newelement.setAttribute("for","country"+currentLine);
+            var textnode = document.createTextNode("Country");
+            newelement.appendChild(textnode);
+            var fieldset1 = document.getElementById("fieldset1");
+            fieldset1.appendChild(newelement);
+        
+            select1.setAttribute("name","country"+currentLine);
+            select1.setAttribute("id","country"+currentLine);
+            select1.setAttribute("type","text");
+            if (currentLine===0) select1.setAttribute("autofocus","autofocus");
+            var fieldset1 = document.getElementById("fieldset1");
+            fieldset1.appendChild(select1);
+          
+            // option2 attributed for drop down list
+            option1.value = "United States";
+            option1.text = "United States";
+            select1.appendChild(option1);
+       
+            // option3 attributes for drop down list
+            option2.value = "China";
+            option2.text = "China";
+            select1.appendChild(option2);          
+        }
+        
+        else{
+            // create a new input element, and append to form
+            var n = document.createElement("input");
+            n.setAttribute("name",namePrefix+currentLine);
+            n.setAttribute("id",namePrefix+currentLine);
+            n.setAttribute("type",dataType);
+            n.setAttribute("placeholder",placeholder);
+            n.setAttribute("size",fieldSize);     
+            var f = document.getElementById(formId);
+            f.appendChild(n);
+        }
 }
+
 
 /* genObjectArray()
  * generates content for an array of objects, 
@@ -425,9 +367,7 @@ function genZodiac(d, m, y, country){
         return ChineseZodiac.animals[(y % ChineseZodiac.animals.length)];
     }    
 }
- 
-
-			
+ 			
 	</script>	
     </body>
 </html>
